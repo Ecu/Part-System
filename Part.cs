@@ -15,10 +15,10 @@ public class Part : MonoBehaviour
 
 	public string part {
 		get {
-			if (_collection == null || _frame == 0.0f) {
+			if (_collection == null || frame == 0) {
 				return "None";
 			} else {
-				return _collection.transform.GetChild (Mathf.FloorToInt (_frame) - 1).gameObject.name;
+				return _collection.transform.GetChild (frame - 1).gameObject.name;
 			}
 		}
 		set {
@@ -65,8 +65,8 @@ public class Part : MonoBehaviour
 			MeshFilter meshFilter = GetComponent<MeshFilter> ();
 			MeshRenderer meshRenderer = GetComponent<MeshRenderer> ();
 
-			if (_collection != null && _frame != 0.0f) {
-				GameObject found = _collection.transform.GetChild (Mathf.FloorToInt (_frame) - 1).gameObject;
+			if (_collection != null && frame != 0) {
+				GameObject found = _collection.transform.GetChild (frame - 1).gameObject;
 				meshFilter.mesh = found.GetComponent<MeshFilter> ().sharedMesh;
 				meshRenderer.material = found.GetComponent<MeshRenderer> ().sharedMaterial;
 			} else {
