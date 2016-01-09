@@ -63,7 +63,7 @@ public class PartInspector : Editor
 			ArrayList options = new ArrayList ();
 			options.Add ("None");
 			foreach (Transform child in collection.transform) {
-				options.Add (child.name.Replace ("_", " "));
+				options.Add (child.name);
 			}
 			index = EditorGUILayout.Popup ("Part", index, (string[])options.ToArray (typeof(string)), EditorStyles.popup);
 		}
